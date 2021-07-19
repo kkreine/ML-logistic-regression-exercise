@@ -14,10 +14,9 @@ import pandas as pd
 
 # define sigmoid function: 
 def sigmoid(z):
-    # Compute sigmoid function
+    # sigmoid function
     # J = sigmoid(z) computes the sigmoid of z.
     
-    # Remove the word pass next line and insert your...
     return 1./(1.+np.exp(-z))
 
 def h(theta, x):
@@ -30,13 +29,12 @@ def derivative(theta, X, y): ## define 𝝏𝒉 𝝏𝜽
 # In[196]:
 
 
-# define the cost or loss or error function:
 def loss(theta, x, y):
     # J = loss(theta, X, y) computes the loss or cost of using theta as the
     # parameter for logistic regression and the gradient of the cost
     # w.r.t. to the parameters.
     
-    # Initialize some useful values
+    # Initialize values
     m = len(y); # number of training examples
 
     J = 0;
@@ -53,7 +51,6 @@ def loss(theta, x, y):
     
     return J
 
-
 # In[197]:
 
 
@@ -66,7 +63,6 @@ def predict(theta, xt):
 
     m = size(xt, 1); # Number of training examples
 
-    # You need to return the following variables correctly
     p = 0
 
     z = h(x_test, theta)
@@ -114,7 +110,6 @@ import matplotlib.pyplot as plt
 ## Extracting positive and negative examples
 Admitted = data[data['y'] == 1]       # all examples with y=1 class
 notAdmitted = data[data['y'] == 0]    # all examples with y=0 class
-################################################
 
 ## Drawing postive and negativs exampels
 plt.scatter(Admitted['x1'], Admitted['x2'], s=22, label='Admitted y=1', marker='o', color='white', edgecolor='darkred')
@@ -137,7 +132,7 @@ x = data.values[:, :-1]
 # In[202]:
 
 
-# Normalize your feature vector using the mean-standard deviation
+# Normalize feature vector using the mean-standard deviation
 
 MuX = x.mean(axis=0)
 StdX = x.std(axis=0)
@@ -168,7 +163,7 @@ x_train, x_test, y_train, y_test = train_test_split(x1, y, random_state=0, test_
 m, n = x_train.shape       # m is the number of examples and n is the number of features
 theta = np.zeros(n)  # initialize theta to be a vector of zeros
 
-# initialize you alpha and the number of iterations you want
+# initialize alpha and the number of iterations
 alpha = 1.5
 iters = 100
 
@@ -197,7 +192,7 @@ plt.show()
 # In[208]:
 
 
-## Draw Decision Boundary, only works for two features data n=3
+## Drawing Decision Boundary, only works for two features data n=3
 a = (Admitted.values[:,0:2] - MuX) / StdX
 b = (notAdmitted.values[:,0:2] - MuX) / StdX
 #a = Admitted
@@ -217,7 +212,7 @@ plt.show()
 # In[209]:
 
 
-# Use sklearn Logistic Regression for (x_train, y_train)
+# Using sklearn Logistic Regression for (x_train, y_train)
 
 from sklearn.linear_model import LogisticRegression
 
@@ -231,7 +226,7 @@ print("test score: ", lg.score(x_test, y_test))
 # In[210]:
 
 
-## Draw Decision Boundary, only works for two features data n=3
+## Drawing Decision Boundary, only works for two features data n=3
 a = (Admitted.values[:,0:2] - MuX) / StdX
 b = (notAdmitted.values[:,0:2] - MuX) / StdX
 
