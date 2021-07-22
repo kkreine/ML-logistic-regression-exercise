@@ -1,4 +1,4 @@
-# logistic-regression-practice
+# Logistic Regression with College Admittance
 
 In this repository, I am using Python to create a linear regression model to predict whether or not a student gets into a university.
 
